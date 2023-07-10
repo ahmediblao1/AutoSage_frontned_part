@@ -1,0 +1,89 @@
+<div id="id2" class="container-xxl mt-5">
+  <div>
+    <h1 class="center mb-3">Add New Car:</h1>
+  </div>
+  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="newCar(loginForm)">
+    <div class="container-xxl mt-5">
+      <div class="m-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          name="name"
+          type="text"
+          id="name"
+          ngModel
+          class="form-control"
+          placeholder="Name"
+          required
+          autofocus
+        />
+        <div id="NameHelpBlock" class="form-text">50 Characters max</div>
+      </div>
+      <div class="m-3">
+        <label for="name" class="form-label">Category</label>
+        <select
+          name="category"
+          id="category"
+          ngModel
+          class="form-control"
+          required
+          autofocus
+        >
+          <option value="Family">Family</option>
+          <option value="Mini">Mini</option>
+          <option value="Truck">Truck</option>
+          <option value="Luxury">Luxury</option>
+          <option value="Sports">Sports</option>
+          <option value="SUV">SUV</option>
+        </select>
+        <div id="NameHelpBlock" class="form-text">Select one</div>
+      </div>
+      <div class="m-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          name="price"
+          type="text"
+          id="price"
+          ngModel
+          class="form-control"
+          placeholder="Price"
+          required
+          autofocus
+        />
+        <div id="NameHelpBlock" class="form-text">Number between 0-9999999</div>
+      </div>
+      <div class="m-3">
+        <label for="unitsInStock" class="form-label">Units In Stock</label>
+        <input
+          name="unitsInStock"
+          type="text"
+          id="unitsInStock"
+          ngModel
+          class="form-control"
+          placeholder="unitsInStock"
+          required
+          autofocus
+        />
+        <div id="NameHelpBlock" class="form-text">Number Between 0-1000</div>
+      </div>
+      <div class="m-3">
+        <label for="modelYear" class="form-label">Model Year</label>
+        <input
+          name="modelYear"
+          type="text"
+          id="modelYear"
+          ngModel
+          class="form-control"
+          placeholder="modelYear"
+          required
+          autofocus
+        />
+        <div id="NameHelpBlock" class="form-text">Number Between 1886-2023</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary m-5">Submit</button>
+  </form>
+  <div *ngIf="ShowImageButton" class="m-3">
+    <h1>Now Upload An Image</h1>
+    <upload-image [imageId]="carId"></upload-image>
+  </div>
+</div>

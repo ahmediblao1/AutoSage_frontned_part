@@ -1,0 +1,22 @@
+<div class="" *ngIf="isInitialized">
+  <div class="container-md">
+    <h1 class="text-dark">Recommended Cars </h1>
+    <ngb-carousel
+      id="carouselExampleDark"
+      class="carousel carousel-primary slide"
+      [pauseOnHover]="true"
+      [keyboard]="true"
+      [interval]="4000"
+    >
+      <ng-template ngbSlide *ngFor="let car of cars">
+        <a routerLink="/Cars/id/{{ car.id }}">
+          <img class="carousel-img" [src]="car.imageSrc | safeResourceUrl" alt="No image loaded" />
+        </a>
+        <div class="carousel-caption">
+          <h1>{{ car.name }}</h1>
+          <p>{{ car.category }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>

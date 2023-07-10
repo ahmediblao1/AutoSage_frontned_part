@@ -1,0 +1,51 @@
+<div class="container-xxl mt-5">
+  <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="filteredCars.length > 0">
+    <h1 class="center m-5">Category: {{ filterValue }}</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="filteredCars.length < 1">
+    <h1>No Cars In This Category: {{ filterValue }}</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="cars">
+    <div class="col" *ngFor="let car of filteredCars">
+      <div class="card">
+        <a routerLink="/Cars/id/{{ car.id }}">
+          <img
+            [src]="car.imageSrc | safeResourceUrl"
+            class="cards-img"
+            alt="No Image"
+          />
+        </a>
+        <div class="card-body">
+          <h3 class="card-title">
+            {{ car.name }} &nbsp;&nbsp;{{ car.price }}$
+          </h3>
+          <p class="card-text">{{ car.category }} | {{ car.modelYear }}</p>
+        </div>
+        <button
+          *ngIf="userAgent == 'Visitor' && filterId == 0"
+          routerLink="/Cars/id/{{ car.id }}"
+          type="button"
+          class="btn btn-dark"
+        >
+          Buy
+        </button>
+        <button
+          *ngIf="userAgent == 'Admin' && filterId == 0"
+          type="button"
+          class="btn btn-danger"
+          (click)="DeleteCar(car.id)"
+        >
+          Delete
+        </button>
+        <button
+          *ngIf="userAgent == 'Admin' && filterId == 0"
+          routerLink="/Admin/Edit/{{ car.id }}"
+          type="button"
+          class="btn btn-info"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

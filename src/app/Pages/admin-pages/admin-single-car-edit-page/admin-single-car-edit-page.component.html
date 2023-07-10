@@ -1,0 +1,83 @@
+<div id="id1" class="container-flex mt-5">
+  <div id="id2" class="container-xxl mt-5">
+    <form #form="ngForm">
+      <div class="m-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          [(ngModel)]="car.name"
+          name="name"
+          type="text"
+          id="name"
+          class="form-control"
+          aria-describedby="NameHelpBlock"
+          (blur)="updateCar()"
+        />
+        <div id="NameHelpBlock" class="form-text">50 Characters max</div>
+      </div>
+      <div class="m-3">
+        <label for="category" class="form-label">Category</label>
+        <select
+          id="category"
+          name="category"
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+          [(ngModel)]="car.category"
+          (blur)="updateCar()"
+        >
+          <option value="Family">Family</option>
+          <option value="Mini">Mini</option>
+          <option value="Truck">Truck</option>
+          <option value="Luxury">Luxury</option>
+          <option value="Sports">Sports</option>
+          <option value="SUV">SUV</option>
+        </select>
+      </div>
+      <div class="m-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          [(ngModel)]="car.price"
+          name="price"
+          type="number"
+          id="price"
+          class="form-control"
+          aria-describedby="PriceHelpBlock"
+          (blur)="updateCar()"
+        />
+        <div id="NameHelpBlock" class="form-text">Number between 0-9999999</div>
+      </div>
+      <div class="m-3">
+        <label for="unitsInStock" class="form-label">Units In Stock</label>
+        <input
+          [(ngModel)]="car.unitsInStock"
+          name="unitsInStock"
+          type="number"
+          id="unitsInStock"
+          class="form-control"
+          aria-describedby="UnitsInStockHelpBlock"
+          (blur)="updateCar()"
+        />
+        <div id="NameHelpBlock" class="form-text">Number Between 0-1000</div>
+      </div>
+      <div class="m-3">
+        <label for="modelYear" class="form-label">Model Year</label>
+        <input
+          [(ngModel)]="car.modelYear"
+          name="modelYear"
+          type="number"
+          id="modelYear"
+          class="form-control"
+          aria-describedby="ModelYearHelpBlock"
+          (blur)="updateCar()"
+        />
+        <div id="NameHelpBlock" class="form-text">Number Between 1886-2023</div>
+      </div>
+      <div class="m-3">
+        <upload-image [imageId]="carId"></upload-image>
+      </div>
+    </form>
+  </div>
+
+  <div id="id3" class="container-xxl">
+    <cars-cards [filterId]="carId"></cars-cards>
+  </div>
+</div>
