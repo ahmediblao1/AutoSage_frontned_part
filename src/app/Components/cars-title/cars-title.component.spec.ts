@@ -12,7 +12,6 @@ describe('CarsTitleComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CarsTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
